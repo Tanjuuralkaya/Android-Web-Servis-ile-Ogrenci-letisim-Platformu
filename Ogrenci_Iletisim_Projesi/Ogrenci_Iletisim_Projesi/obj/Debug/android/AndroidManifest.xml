@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="Ogrenci_Iletisim_Projesi.Ogrenci_Iletisim_Projesi" android:versionCode="1" android:versionName="1.0">
+  <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="19" />
+  <application android:label="Ogrenci_Iletisim_Projesi" android:icon="@drawable/icon" android:name="mono.android.app.Application" android:debuggable="true">
+    <activity android:label="DerslerActivity" android:name="ogrenci_iletisim_projesi.DerslerActivity" />
+    <activity android:label="Activity1" android:name="ogrenci_iletisim_projesi.KullaniciEkleActivity" />
+    <activity android:icon="@drawable/icon" android:label="Ogrenci_Iletisim_Projesi" android:name="ogrenci_iletisim_projesi.MainActivity" />
+    <activity android:label="SiniflarActivity" android:name="ogrenci_iletisim_projesi.SiniflarActivity" />
+    <activity android:label="YorumlarActivity" android:name="ogrenci_iletisim_projesi.YorumlarActivity" />
+    <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="Ogrenci_Iletisim_Projesi.Ogrenci_Iletisim_Projesi.mono.MonoRuntimeProvider.__mono_init__" />
+    <receiver android:name="mono.android.Seppuku">
+      <intent-filter>
+        <action android:name="mono.android.intent.action.SEPPUKU" />
+        <category android:name="mono.android.intent.category.SEPPUKU.Ogrenci_Iletisim_Projesi.Ogrenci_Iletisim_Projesi" />
+      </intent-filter>
+    </receiver>
+    <activity android:icon="@drawable/icon" android:label="Ogrenci_Iletisim_Projesi" android:name="ogrenci_iletisim_projesi.ogrenci_iletisim_projesi.TrialSplashScreen" android:theme="@style/Mono.Android.Theme.Splash" android:noHistory="true">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+  </application>
+  <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+</manifest>

@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://192.168.198.88" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://192.168.198.88" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://192.168.198.88">
+      <s:element name="BolumCek">
+        <s:complexType />
+      </s:element>
+      <s:element name="BolumCekResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BolumCekResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DersAdiCek">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="bolum" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="sinif" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DersAdiCekResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DersAdiCekResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DersIdCek">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="bolum" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="sinif" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DersIdCekResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DersIdCekResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GirisKontrol">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ad_email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sifre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GirisKontrolResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GirisKontrolResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciIdGetir">
+        <s:complexType />
+      </s:element>
+      <s:element name="KullaniciIdGetirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KullaniciIdGetirResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciKayit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="isim" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="soyisim" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mail" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="cins" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="unvan" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bolum" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="resim" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciKayitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KullaniciKayitResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YorumlariGetir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ders_id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YorumlariGetirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="YorumlariGetirResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YorumEkle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="yorum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="resim_yolu" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="k_id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ders_id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YorumEkleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="YorumEkleResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciAdSoyad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciAdSoyadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KullaniciAdSoyadResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="BolumCekSoapIn">
+    <wsdl:part name="parameters" element="tns:BolumCek" />
+  </wsdl:message>
+  <wsdl:message name="BolumCekSoapOut">
+    <wsdl:part name="parameters" element="tns:BolumCekResponse" />
+  </wsdl:message>
+  <wsdl:message name="DersAdiCekSoapIn">
+    <wsdl:part name="parameters" element="tns:DersAdiCek" />
+  </wsdl:message>
+  <wsdl:message name="DersAdiCekSoapOut">
+    <wsdl:part name="parameters" element="tns:DersAdiCekResponse" />
+  </wsdl:message>
+  <wsdl:message name="DersIdCekSoapIn">
+    <wsdl:part name="parameters" element="tns:DersIdCek" />
+  </wsdl:message>
+  <wsdl:message name="DersIdCekSoapOut">
+    <wsdl:part name="parameters" element="tns:DersIdCekResponse" />
+  </wsdl:message>
+  <wsdl:message name="GirisKontrolSoapIn">
+    <wsdl:part name="parameters" element="tns:GirisKontrol" />
+  </wsdl:message>
+  <wsdl:message name="GirisKontrolSoapOut">
+    <wsdl:part name="parameters" element="tns:GirisKontrolResponse" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciIdGetirSoapIn">
+    <wsdl:part name="parameters" element="tns:KullaniciIdGetir" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciIdGetirSoapOut">
+    <wsdl:part name="parameters" element="tns:KullaniciIdGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciKayitSoapIn">
+    <wsdl:part name="parameters" element="tns:KullaniciKayit" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciKayitSoapOut">
+    <wsdl:part name="parameters" element="tns:KullaniciKayitResponse" />
+  </wsdl:message>
+  <wsdl:message name="YorumlariGetirSoapIn">
+    <wsdl:part name="parameters" element="tns:YorumlariGetir" />
+  </wsdl:message>
+  <wsdl:message name="YorumlariGetirSoapOut">
+    <wsdl:part name="parameters" element="tns:YorumlariGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="YorumEkleSoapIn">
+    <wsdl:part name="parameters" element="tns:YorumEkle" />
+  </wsdl:message>
+  <wsdl:message name="YorumEkleSoapOut">
+    <wsdl:part name="parameters" element="tns:YorumEkleResponse" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciAdSoyadSoapIn">
+    <wsdl:part name="parameters" element="tns:KullaniciAdSoyad" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciAdSoyadSoapOut">
+    <wsdl:part name="parameters" element="tns:KullaniciAdSoyadResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Service1Soap">
+    <wsdl:operation name="BolumCek">
+      <wsdl:input message="tns:BolumCekSoapIn" />
+      <wsdl:output message="tns:BolumCekSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DersAdiCek">
+      <wsdl:input message="tns:DersAdiCekSoapIn" />
+      <wsdl:output message="tns:DersAdiCekSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DersIdCek">
+      <wsdl:input message="tns:DersIdCekSoapIn" />
+      <wsdl:output message="tns:DersIdCekSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GirisKontrol">
+      <wsdl:input message="tns:GirisKontrolSoapIn" />
+      <wsdl:output message="tns:GirisKontrolSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciIdGetir">
+      <wsdl:input message="tns:KullaniciIdGetirSoapIn" />
+      <wsdl:output message="tns:KullaniciIdGetirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciKayit">
+      <wsdl:input message="tns:KullaniciKayitSoapIn" />
+      <wsdl:output message="tns:KullaniciKayitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YorumlariGetir">
+      <wsdl:input message="tns:YorumlariGetirSoapIn" />
+      <wsdl:output message="tns:YorumlariGetirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YorumEkle">
+      <wsdl:input message="tns:YorumEkleSoapIn" />
+      <wsdl:output message="tns:YorumEkleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciAdSoyad">
+      <wsdl:input message="tns:KullaniciAdSoyadSoapIn" />
+      <wsdl:output message="tns:KullaniciAdSoyadSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BolumCek">
+      <soap:operation soapAction="http://192.168.198.88/BolumCek" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DersAdiCek">
+      <soap:operation soapAction="http://192.168.198.88/DersAdiCek" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DersIdCek">
+      <soap:operation soapAction="http://192.168.198.88/DersIdCek" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GirisKontrol">
+      <soap:operation soapAction="http://192.168.198.88/GirisKontrol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciIdGetir">
+      <soap:operation soapAction="http://192.168.198.88/KullaniciIdGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciKayit">
+      <soap:operation soapAction="http://192.168.198.88/KullaniciKayit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YorumlariGetir">
+      <soap:operation soapAction="http://192.168.198.88/YorumlariGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YorumEkle">
+      <soap:operation soapAction="http://192.168.198.88/YorumEkle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciAdSoyad">
+      <soap:operation soapAction="http://192.168.198.88/KullaniciAdSoyad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BolumCek">
+      <soap12:operation soapAction="http://192.168.198.88/BolumCek" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DersAdiCek">
+      <soap12:operation soapAction="http://192.168.198.88/DersAdiCek" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DersIdCek">
+      <soap12:operation soapAction="http://192.168.198.88/DersIdCek" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GirisKontrol">
+      <soap12:operation soapAction="http://192.168.198.88/GirisKontrol" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciIdGetir">
+      <soap12:operation soapAction="http://192.168.198.88/KullaniciIdGetir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciKayit">
+      <soap12:operation soapAction="http://192.168.198.88/KullaniciKayit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YorumlariGetir">
+      <soap12:operation soapAction="http://192.168.198.88/YorumlariGetir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YorumEkle">
+      <soap12:operation soapAction="http://192.168.198.88/YorumEkle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciAdSoyad">
+      <soap12:operation soapAction="http://192.168.198.88/KullaniciAdSoyad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="Service1Soap" binding="tns:Service1Soap">
+      <soap:address location="http://192.168.43.44/webservice/Service1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1Soap12" binding="tns:Service1Soap12">
+      <soap12:address location="http://192.168.43.44/webservice/Service1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
